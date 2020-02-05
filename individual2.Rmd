@@ -1,0 +1,22 @@
+---
+title: "individual2"
+author: 'Jessie Bustin Github: jebustin'
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+```
+
+1. 
+```{r}
+hist(choco$Rating)
+```
+It looks like there are a few potential outliers on the highend above 4.5 and potentially a few below 2 as well depending on how we decide to define a cutoff for outliers.
+
+2.
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating)
+```
