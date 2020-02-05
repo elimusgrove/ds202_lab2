@@ -1,0 +1,19 @@
+---
+title: "class"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+choco = read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+```{r}
+hist(choco$Rating)
+```
+The ratings don't follow a normal curve. There are outliers that received a rating of between 4.5-5 and 1-1.5 but most of the values fall between 2 and 5.
+```{r}
+plot(choco$Cocoa.Pct, choco$Rating)
+```
+The scatter plot with cocoa percentage on the x-axis and the rating on the y-axis shows there is not a correlation between the two variables.
