@@ -1,0 +1,22 @@
+---
+title: "team"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco = read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+### 1. 
+Number of rows:
+```{r}
+nrow(choco)
+```
+### 2.
+```{r}
+
+```
