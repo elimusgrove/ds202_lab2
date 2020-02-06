@@ -21,3 +21,15 @@ nrow(choco)
 year <- table(choco$Review.Date)
 barplot(year)
 ```
+
+### 3.
+```{r}
+print(sort(table(choco$Company.Location)))
+```
+The top 3 locations are the U.S, France, and Canada.
+
+```{r}
+plot(tapply(choco$Rating, choco$Company.Location, mean))
+sort(tapply(choco$Rating, choco$Company.Location, mean))
+```
+Chile, Philippines, and the Netherlands are the top 3 countries with the highest average ratings. Between the top 3 locations with the most ratings, the U.S has an average rating of 3.16, France has an average rating of 3.253, and Canada has an average rating of 3.313. These all fall into similar averages with many other countries.
