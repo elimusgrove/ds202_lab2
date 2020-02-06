@@ -26,10 +26,30 @@ barplot(year)
 ```{r}
 print(sort(table(choco$Company.Location)))
 ```
-The top 3 locations are the U.S, France, and Canada.
+The locations with the most reviews in the dataset are the U.S, France, and Canada.
 
 ```{r}
-plot(tapply(choco$Rating, choco$Company.Location, mean))
-sort(tapply(choco$Rating, choco$Company.Location, mean))
+chocoTopLocations <- choco[choco$Company.Location == 'U.S.A.'|choco$Company.Location == 'Canada'|choco$Company.Location == 'France',]
+boxplot(Rating~Company.Location, data = chocoTopLocations)
+chocoUSA <- choco[choco$Company.Location == 'U.S.A.',]
+summary(chocoUSA$Rating)
+chocoCanada <- choco[choco$Company.Location == 'Canada',]
+summary(chocoCanada$Rating)
+chocoFrance <- choco[choco$Company.Location == 'France',]
+summary(chocoFrance$Rating)
 ```
-Chile, Philippines, and the Netherlands are the top 3 countries with the highest average ratings. Between the top 3 locations with the most ratings, the U.S has an average rating of 3.16, France has an average rating of 3.253, and Canada has an average rating of 3.313. These all fall into similar averages with many other countries.
+Accross the 3 countries with the most reviews in this data set, the ratings are pretty consistent.  They all have the same median with a little variance amoung their means.  The spreads vary a little as well but not by much.  They all have the same max rating, while Canada has a min rating .5 points higher.  Their IQR's also vary a little with USA's being slightly lower and France's is slightly more centered around the median.
+
+### 4.
+Does the variability in review ratings change over time?
+
+### 5.
+```{r}
+plot(choco$Review.Date, choco$Rating)
+boxplot(Rating~Review.Date, data = choco)
+```
+
+Yes!  As time has progressed, the review ratings have not been as extreme.  They have more variability and a bigger spread in the early years and as time progresses the range and spread appear to get tighter.
+
+### 6.
+The process of collaborating through GitHub has been smooth and reliable for our team.  Using GitHub has aided our ability to document and control the team workflow.  When it came to the team portion of our lab, we worked together in person and then finished by communicating through email and pushing our work to our shared GitHub repo.  The first stage was a little awkward as we were both coming up with ideas for portions of the project face to face then having to pull and push our changes to avoid having to settle any file conflicts.  Not an issue though, and we didn't have to look over each other's shoulders as we worked together. After our in person lab time, Eli finished the next couple of problems and Jessie finished the last couple.  We both then went over the other's contributions and gave feedback.  Overall it was a smooth transition from teammember to teammember and workflow was easily balanced and documented.
