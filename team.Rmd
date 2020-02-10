@@ -19,7 +19,7 @@ nrow(choco)
 ### 2.
 ```{r}
 year <- table(choco$Review.Date)
-barplot(year)
+barplot(year, main = "Number of Reviews by Year", ylab = "Number of Reviews", xlab = "Year")
 ```
 
 ### 3.
@@ -29,8 +29,9 @@ print(sort(table(choco$Company.Location)))
 The locations with the most reviews in the dataset are the U.S, France, and Canada.
 
 ```{r}
-chocoTopLocations <- choco[choco$Company.Location == 'U.S.A.'|choco$Company.Location == 'Canada'|choco$Company.Location == 'France',]
-boxplot(Rating~Company.Location, data = chocoTopLocations)
+chocoTopLocations <- choco[choco$Company.Location == 'U.S.A.' | choco$Company.Location == 'Canada' | choco$Company.Location == 'France', ]
+chocoTopLocations <- droplevels(chocoTopLocations)
+boxplot(Rating~Company.Location, data = chocoTopLocations, main = "Distributions of Ratings For US/France/Canada")
 chocoUSA <- choco[choco$Company.Location == 'U.S.A.',]
 summary(chocoUSA$Rating)
 chocoCanada <- choco[choco$Company.Location == 'Canada',]
@@ -45,8 +46,8 @@ Does the variability in review ratings change over time?
 
 ### 5.
 ```{r}
-plot(choco$Review.Date, choco$Rating)
-boxplot(Rating~Review.Date, data = choco)
+plot(choco$Review.Date, choco$Rating, main = "Ratings by Year", ylab = "Rating", xlab = "Year")
+boxplot(Rating~Review.Date, data = choco, main = "Rating Distribution by Year", ylab = "Rating", xlab = "Year")
 ```
 
 Yes!  As time has progressed, the review ratings have not been as extreme.  They have more variability and a bigger spread in the early years and as time progresses the range and spread appear to get tighter.
